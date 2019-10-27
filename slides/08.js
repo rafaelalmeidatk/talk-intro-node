@@ -1,9 +1,15 @@
-// Módulo core
-const http = require('http');
+const http = require("http");
 
-// Arquivo local
-const arquivoLocal = require('./arquivoLocal');
-const arquivoLocal = require('./arquivoLocal.js');
+const server = http.createServer(function(req, res) {
+  console.log("Recebemos uma requisição!");
 
-// Módulo na pasta node_modules
-const express = require('express');
+  res.write("Hello ");
+
+  setTimeout(function() {
+    res.end("World!");
+  }, 2000);
+});
+
+server.listen(3000, function() {
+  console.log("Servidor rodando na porta 3000");
+});
